@@ -1,0 +1,24 @@
+<nav th:fragment="nav" class="navbar navbar-dark navbar-expand-lg fixed-top bg-white portfolio-navbar gradient"
+     style="background: linear-gradient(90deg, var(--bs-gray-600) 0%, var(--bs-black) 50%, var(--bs-gray-600) 100%);">
+    <div class="container"><a class="navbar-brand logo" href="/">barbershop</a>
+        <button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navbarNav">
+            <span class="visually-hidden">Toggle navigation</span>
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="/">Услуги</a></li>
+                <li th:if="${role == 'ADMIN'}" class="nav-item"><a class="nav-link" href="/category">Виды причесок</a></li>
+                <li th:if="${role == 'MASTER'}" class="nav-item"><a class="nav-link" href="/master">Мой профиль</a></li>
+                <li th:if="${role != 'NOT'}" class="nav-item"><a class="nav-link" href="/masters">Команда</a></li>
+                <li th:if="${role == 'MASTER' or role == 'CLIENT'}" class="nav-item"><a class="nav-link" href="/notes/my">Мои записи</a></li>
+                <li th:if="${role == 'MASTER'}" class="nav-item"><a class="nav-link" href="/notes/add">Добавить услугу</a></li>
+                <li th:if="${role == 'ADMIN'}" class="nav-item"><a class="nav-link" href="/stats">Финансы</a></li>
+                <li th:if="${role == 'ADMIN'}" class="nav-item"><a class="nav-link" href="/users">Профили</a></li>
+                <li th:if="${role == 'NOT'}" class="nav-item"><a class="nav-link" href="/login">Вход</a></li>
+                <li th:if="${role == 'NOT'}" class="nav-item"><a class="nav-link" href="/reg">Регистрация</a></li>
+                <li th:if="${role != 'NOT'}" class="nav-item"><a class="nav-link" href="/logout">Выход</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
